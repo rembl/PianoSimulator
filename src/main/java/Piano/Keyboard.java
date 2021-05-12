@@ -15,8 +15,7 @@ import static Piano.PianoSimulator.header;
 public class Keyboard implements KeyListener {
 
     @Override
-    public void keyTyped(KeyEvent e) {
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -213,8 +212,7 @@ public class Keyboard implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-    }
+    public void keyReleased(KeyEvent e) {}
 
     public void PLay(String musicPathName, String picPathName, String text) {
         ImageIcon back = new ImageIcon(picPathName);

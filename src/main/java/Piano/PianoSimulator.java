@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class PianoSimulator{
 
-
     static JFrame frame;
     static JLabel header;
     static JLabel background;
