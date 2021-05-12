@@ -5,22 +5,22 @@ import java.awt.*;
 
 public class PianoSimulator{
 
-    JFrame frame;
-    JLabel header;
-    JLabel background;
-    ImageIcon back = new ImageIcon("src/main/resources/backgroundImage.png");
 
+    static JFrame frame;
+    static JLabel header;
+    static JLabel background;
+    ImageIcon back = new ImageIcon("src/main/resources/backgroundImage.png");
+    Keyboard keyboard;
 
     public PianoSimulator() {
         frame = new JFrame("Piano Simulator");
-        frame.setSize(1200, 465);
+        frame.setSize(1200, 480);
         frame.setResizable(false);
         frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setFocusable(true);
 
-        header = new JLabel("Press any key", SwingConstants.CENTER);
+        header = new JLabel("Press any key, press ENTER to reset", SwingConstants.CENTER);
         header.setFont(header.getFont().deriveFont(35.0f));
         frame.add(header, BorderLayout.NORTH);
 
@@ -28,7 +28,9 @@ public class PianoSimulator{
         background.setIcon(new ImageIcon(back.getImage().getScaledInstance(1200, 400, Image.SCALE_SMOOTH)));
         frame.add(background, BorderLayout.SOUTH);
 
-        Keyboard.Keys(frame, header, background);
+        keyboard = new Keyboard();
+        frame.addKeyListener(keyboard);
+        frame.setFocusable(true);
 
         frame.setVisible(true);
 
