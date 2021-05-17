@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.Random;
 
@@ -219,8 +219,9 @@ public class Keyboard implements KeyListener {
 
     public void PLay(String musicPathName) {
         InputStream s = this.getClass().getResourceAsStream(musicPathName);
+        InputStream buffered = new BufferedInputStream(s);
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(s);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(buffered);
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
