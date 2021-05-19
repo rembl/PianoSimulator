@@ -58,6 +58,9 @@ public class PianoSimulator extends JPanel {
         frame.add(header, BorderLayout.NORTH);
 
         buttons = Arrays.asList(C1, C11, D1, D11, E1, F1, F11, G1, G11, A1, A11, B1, C2, C22, D2, D22, E2, F2, F22, G2, G22, A2, A22, B2, C3);
+        for(JButton button : buttons) {
+            button.setFocusable(false);
+        }
         radar = new JPanel();
         radar.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
