@@ -182,6 +182,7 @@ public class Keyboard implements KeyListener {
             clip.open(audioInputStream);
             clip.start();
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             ex.printStackTrace();
         }
     }
