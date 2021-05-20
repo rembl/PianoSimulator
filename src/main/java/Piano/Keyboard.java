@@ -10,24 +10,23 @@ import java.awt.event.KeyListener;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.Random;
+import java.util.stream.Stream;
 
-import static Piano.PianoSimulator.*;
+import static Piano.PianoSimulator.buttons;
+
 
 public class Keyboard implements KeyListener {
 
     final Random r = new Random();
+    Boolean[] keysPressed = Stream.of(new Boolean[25]).map(i -> false).toArray(Boolean[]::new);
 
     @Override
     public void keyTyped(KeyEvent e) {}
 
     @Override
-    public void keyPressed(KeyEvent e) {}
-
-    @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
 
         int keyCode = e.getKeyCode();
-        String musicPathName;
 
         if(keyCode == KeyEvent.VK_ESCAPE) {
             System.exit(0);
@@ -40,132 +39,285 @@ public class Keyboard implements KeyListener {
         }
 
         if (keyCode == KeyEvent.VK_Z) {
-            musicPathName = "/29.wav";
-            PLay(musicPathName, C1);
+            if(!keysPressed[0]) {
+                PLay("/29.wav", buttons[0]);
+                keysPressed[0] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_W) {
-            musicPathName = "/30.wav";
-            PLay(musicPathName, C11);
-
+            if(!keysPressed[1]) {
+                PLay("/30.wav", buttons[1]);
+                keysPressed[1] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_X) {
-            musicPathName = "/31.wav";
-            PLay(musicPathName, D1);
+            if(!keysPressed[2]) {
+                PLay("/31.wav", buttons[2]);
+                keysPressed[2] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_E) {
-            musicPathName = "/32.wav";
-            PLay(musicPathName, D11);
+            if(!keysPressed[3]) {
+                PLay("/32.wav", buttons[3]);
+                keysPressed[3] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_C) {
-            musicPathName = "/33.wav";
-            PLay(musicPathName, E1);
+            if(!keysPressed[4]) {
+                PLay("/33.wav", buttons[4]);
+                keysPressed[4] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_S) {
-            musicPathName = "/34.wav";
-            PLay(musicPathName, F1);
+            if(!keysPressed[5]) {
+                PLay("/34.wav", buttons[5]);
+                keysPressed[5] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_R) {
-            musicPathName = "/35.wav";
-            PLay(musicPathName, F11);
-
+            if(!keysPressed[6]) {
+                PLay("/35.wav", buttons[6]);
+                keysPressed[6] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_D) {
-            musicPathName = "/36.wav";
-            PLay(musicPathName, G1);
+            if(!keysPressed[7]) {
+                PLay("/36.wav", buttons[7]);
+                keysPressed[7] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_T) {
-            musicPathName = "/37.wav";
-            PLay(musicPathName, G11);
+            if(!keysPressed[8]) {
+                PLay("/37.wav", buttons[8]);
+                keysPressed[8] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_F) {
-            musicPathName = "/38.wav";
-            PLay(musicPathName, A1);
+            if(!keysPressed[9]) {
+                PLay("/38.wav", buttons[9]);
+                keysPressed[9] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_Y) {
-            musicPathName = "/39.wav";
-            PLay(musicPathName, A11);
+            if(!keysPressed[10]) {
+                PLay("/39.wav", buttons[10]);
+                keysPressed[10] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_G) {
-            musicPathName = "/40.wav";
-            PLay(musicPathName, B1);
+            if(!keysPressed[11]) {
+                PLay("/40.wav", buttons[11]);
+                keysPressed[11] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_H) {
-            musicPathName = "/41.wav";
-            PLay(musicPathName, C2);
+            if(!keysPressed[12]) {
+                PLay("/41.wav", buttons[12]);
+                keysPressed[12] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_U) {
-            musicPathName = "/42.wav";
-            PLay(musicPathName, C22);
+            if(!keysPressed[13]) {
+                PLay("/42.wav", buttons[13]);
+                keysPressed[13] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_J) {
-            musicPathName = "/43.wav";
-            PLay(musicPathName, D2);
+            if(!keysPressed[14]) {
+                PLay("/43.wav", buttons[14]);
+                keysPressed[14] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_I) {
-            musicPathName = "/44.wav";
-            PLay(musicPathName, D22);
+            if(!keysPressed[15]) {
+                PLay("/44.wav", buttons[15]);
+                keysPressed[15] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_K) {
-            musicPathName = "/45.wav";
-            PLay(musicPathName, E2);
+            if(!keysPressed[16]) {
+                PLay("/45.wav", buttons[16]);
+                keysPressed[16] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_L) {
-            musicPathName = "/46.wav";
-            PLay(musicPathName, F2);
+            if(!keysPressed[17]) {
+                PLay("/46.wav", buttons[17]);
+                keysPressed[17] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_O) {
-            musicPathName = "/47.wav";
-            PLay(musicPathName, F22);
+            if(!keysPressed[18]) {
+                PLay("/47.wav", buttons[18]);
+                keysPressed[18] = true;
+            }
         }
 
         if(keyCode == 59) {
-            musicPathName = "/48.wav";
-            PLay(musicPathName, G2);
+            if(!keysPressed[19]) {
+                PLay("/48.wav", buttons[19]);
+                keysPressed[19] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_P) {
-            musicPathName = "/49.wav";
-            PLay(musicPathName, G22);
+            if(!keysPressed[20]) {
+                PLay("/49.wav", buttons[20]);
+                keysPressed[20] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_M) {
-            musicPathName = "/50.wav";
-            PLay(musicPathName, A2);
+            if(!keysPressed[21]) {
+                PLay("/50.wav", buttons[21]);
+                keysPressed[21] = true;
+            }
         }
 
         if(keyCode == 91) {
-            musicPathName = "/51.wav";
-            PLay(musicPathName, A22);
+            if(!keysPressed[22]) {
+                PLay("/51.wav", buttons[22]);
+                keysPressed[22] = true;
+            }
         }
 
         if(keyCode == KeyEvent.VK_COMMA) {
-            musicPathName = "/52.wav";
-            PLay(musicPathName, B2);
+            if(!keysPressed[23]) {
+                PLay("/52.wav", buttons[23]);
+                keysPressed[23] = true;
+            }
         }
 
         if(keyCode == 46) {
-            musicPathName = "/53.wav";
-            PLay(musicPathName, C3);
+            if(!keysPressed[24]) {
+                PLay("/53.wav", buttons[24]);
+                keysPressed[24] = true;
+            }
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+        int keyCode = e.getKeyCode();
+
+        if (keyCode == KeyEvent.VK_Z) {
+            keysPressed[0] = false;
         }
 
+        if(keyCode == KeyEvent.VK_W) {
+            keysPressed[1] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_X) {
+            keysPressed[2] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_E) {
+            keysPressed[3] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_C) {
+            keysPressed[4] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_S) {
+            keysPressed[5] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_R) {
+            keysPressed[6] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_D) {
+            keysPressed[7] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_T) {
+            keysPressed[8] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_F) {
+            keysPressed[9] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_Y) {
+            keysPressed[10] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_G) {
+            keysPressed[11] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_H) {
+            keysPressed[12] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_U) {
+            keysPressed[13] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_J) {
+            keysPressed[14] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_I) {
+            keysPressed[15] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_K) {
+            keysPressed[16] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_L) {
+            keysPressed[17] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_O) {
+            keysPressed[18] = false;
+        }
+
+        if(keyCode == 59) {
+            keysPressed[19] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_P) {
+            keysPressed[20] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_M) {
+            keysPressed[21] = false;
+        }
+
+        if(keyCode == 91) {
+            keysPressed[22] = false;
+        }
+
+        if(keyCode == KeyEvent.VK_COMMA) {
+            keysPressed[23] = false;
+        }
+
+        if(keyCode == 46) {
+            keysPressed[24] = false;
+        }
     }
 
     public void PLay(String musicPathName, JButton button) {
@@ -181,9 +333,8 @@ public class Keyboard implements KeyListener {
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
+        } catch (Exception ignored) {
+            System.out.println("Wrong music path name");
         }
     }
 }

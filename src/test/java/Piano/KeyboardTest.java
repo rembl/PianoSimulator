@@ -3,8 +3,6 @@ package Piano;
 import org.junit.jupiter.api.Test;
 import javax.swing.*;
 import java.awt.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,36 +35,16 @@ class KeyboardTest {
     }
 
     @Test
-    void ExceptionTest1() {
-
+    void ExceptionTest() {
+        boolean thrown = false;
         Keyboard keyboard = new Keyboard();
         JButton button = new JButton("oops");
         String wrongName = "/no.awt";
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(b);
-        PrintStream old = System.out;
-        System.setOut(ps);
-        keyboard.PLay(wrongName, button);
-        System.out.flush();
-        System.setOut(old);
-
-        assertEquals("Stream closed\n", b.toString());
-    }
-
-    @Test
-    void ExceptionTest2() {
-
-        Keyboard keyboard = new Keyboard();
-        JButton button = new JButton("oops");
-        String wrongName = "";
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(b);
-        PrintStream old = System.out;
-        System.setOut(ps);
-        keyboard.PLay(wrongName, button);
-        System.out.flush();
-        System.setOut(old);
-
-        assertEquals("Stream of unsupported format\n", b.toString());
+        try {
+            keyboard.PLay(wrongName, button);
+        } catch (Exception e) {
+            thrown = true;
+        }
+        assertFalse(thrown);
     }
 }
